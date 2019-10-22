@@ -1,0 +1,36 @@
+<%# view profile page  %>
+<%- model_class = Profile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @profile.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @profile.last_name %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:burnaby) %>:</strong></dt>
+  <dd><%= @profile.burnaby %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:richmond) %>:</strong></dt>
+  <dd><%= @profile.richmond %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:north_vancouver) %>:</strong></dt>
+  <dd><%= @profile.north_vancouver %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:west_vancouver) %>:</strong></dt>
+  <dd><%= @profile.west_vancouver %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:yale_town) %>:</strong></dt>
+  <dd><%= @profile.yale_town %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gas_town) %>:</strong></dt>
+  <dd><%= @profile.gas_town %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @profile.price %></dd>
+</dl>
+
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_profile_path(@profile), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              profile_path(@profile),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
